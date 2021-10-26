@@ -1,8 +1,17 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
-import { Avatar, Wrap, WrapItem } from "@chakra-ui/react";
-import { Divider } from "@chakra-ui/react";
-import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import {
+  Avatar,
+  Wrap,
+  WrapItem,
+  Divider,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td
+} from "@chakra-ui/react";
 function Tool({ key, avatar, email, first_name, last_name }) {
   return (
     <>

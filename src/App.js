@@ -1,6 +1,7 @@
 import "./styles.css";
 import Users from "./Users";
 import AddForm from "./AddForm";
+import Navi from "./Navi";
 
 export default function App() {
   return (
