@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Spinner } from "reactstrap";
 import Tool from "./Tool";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Spinner, Stack } from "@chakra-ui/react";
 
 function Users() {
   const [data, setData] = useState([]);
@@ -34,12 +35,12 @@ function Users() {
   }
   return (
     <>
-      <Button name="re" value="re" onClick={handleClick}>
+      <Button colorScheme="blue" onClick={handleClick}>
         reFetch
       </Button>
       {loading ? (
         <div>
-          <Spinner color="primary" />
+          <Spinner color="red.500" thickness="40px" speed="0.65s" />
         </div>
       ) : (
         <div>
