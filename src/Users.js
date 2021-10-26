@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Tool from "./Tool";
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import { Spinner, Stack } from "@chakra-ui/react";
+import { Button, Spinner } from "@chakra-ui/react";
 
 function Users() {
   const [data, setData] = useState([]);
