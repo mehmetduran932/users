@@ -12,12 +12,13 @@ import {
   Th,
   Td
 } from "@chakra-ui/react";
-function Tool({ key, avatar, email, first_name, last_name }) {
+function Tool({ id, avatar, email, first_name, last_name }) {
+  console.log(id, email);
   return (
     <>
-      <ListGroup key={key}>
-        <ListGroupItem key={key}>
-          <Wrap>
+      <ListGroup>
+        <ListGroupItem>
+          <Wrap key={id}>
             <WrapItem>
               <Avatar name={avatar} src={avatar} />
             </WrapItem>

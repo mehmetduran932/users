@@ -1,13 +1,29 @@
 import React, { useState } from "react";
-import { Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
+import {
+  Input,
+  Button,
+  FormControl,
+  FormLabel,
+  AlertIcon,
+  Alert
+} from "@chakra-ui/react";
 import axios from "axios";
 function AddForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [warning, setWarning] = useState(false);
 
   function saveOn() {
+    if (lastName === "" && email === "" && firstName === "") {
+      setWarning(true);
+      return;
+    }
+    setWarning(false);
+
+    setLoading(true);
     axios
       .post("https://reqres.in/api/users?delay=1", {
         email: email,
@@ -20,6 +36,9 @@ function AddForm() {
       })
       .catch(function (error) {
         console.log(error);
+      })
+      .finally(function (response) {
+        setLoading(false);
       });
   }
 
@@ -65,7 +84,14 @@ function AddForm() {
           />
         </FormControl>
       </div>
-      <Button colorScheme="blue" onClick={() => saveOn()}>
+      {warning && (
+        <Alert status="warning">
+          <AlertIcon />
+          Lütfen Boş geçmeyiniz!
+        </Alert>
+      )}
+
+      <Button colorScheme="blue" isLoading={loading} onClick={() => saveOn()}>
         Add To Api
       </Button>
     </>

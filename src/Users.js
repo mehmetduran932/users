@@ -12,7 +12,7 @@ function Users() {
       .get("https://reqres.in/api/users?delay=1")
       .then((response) => {
         setData(response.data.data);
-        console.log(response.data);
+        console.log(response.data.data);
       })
       .catch((err) => {
         setError(err);
@@ -44,15 +44,18 @@ function Users() {
       ) : (
         <div>
           <h1>Kullanıcılar</h1>
-          {data.map((d) => (
-            <Tool
-              key={d.id}
-              email={d.email}
-              avatar={d.avatar}
-              first_name={d.first_name}
-              last_name={d.last_name}
-            />
-          ))}
+          {data.map((d) => {
+            console.log(d.id);
+            return (
+              <Tool
+                id={d.id}
+                email={d.email}
+                avatar={d.avatar}
+                first_name={d.first_name}
+                last_name={d.last_name}
+              />
+            );
+          })}
         </div>
       )}
     </>
